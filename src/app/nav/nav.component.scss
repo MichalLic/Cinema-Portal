@@ -1,0 +1,24 @@
+nav {
+  background-color: #9f9fa7;
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  li {
+    flex: 1;
+
+    a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #000000;
+      text-decoration: none;
+      padding: 15px 0;
+      transition: .3s;
+      &:hover {
+          background-color: #c7c7cc;
+      }
+    }
+  }
+}

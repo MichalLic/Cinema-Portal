@@ -1,10 +1,11 @@
 <header>
-  <div class="container">
+  <div class="container flex-between-center">
     <div class="logo-box">
-      <img src="../../assets/images/logo.png" alt="">
+      <a href="/"><img src="../../assets/images/logo.png" alt=""></a>
     </div>
-    <div class="time-box">
-      {{currentTime | date: 'HH:mm:ss'}}
+    <div class="detail-box">
+      <p>{{currentTime | date: 'HH:mm:ss'}}</p>
+      <p>Reservations: 85 745 45 45</p>
     </div>
   </div>
 </header>
