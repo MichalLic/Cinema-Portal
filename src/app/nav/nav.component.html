@@ -1,7 +1,10 @@
 <nav>
   <div class="container">
     <ul class="menu-list">
-      <li><a href="">News</a></li>
+      <li><a routerLink="news"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: true}">
+        News</a></li>
       <li><a href="">Ours cinema</a></li>
       <li><a href="">Reservation</a></li>
     </ul>
