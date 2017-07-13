@@ -1,5 +1,19 @@
 <footer>
-  <div class="container">
+  <div class="container flex-space-around">
+    <div class="links">
+      <a routerLink="news"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">
+        News</a>
+      <a routerLink="cinemas"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">
+        Our cinemas</a>
+      <a routerLink="reservation"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}">
+        Reservation</a>
+    </div>
     <div class="rights">
       All rights reserved Cineworld Cinemas 2017 ©
     </div>

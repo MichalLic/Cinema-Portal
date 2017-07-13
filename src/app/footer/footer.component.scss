@@ -1,0 +1,23 @@
+footer {
+  background: #168a6b;
+  padding: 15px 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  a {
+    text-decoration: none;
+    color: #c7c7cc;
+    transition: .3s;
+
+    &:hover {
+      color: #9f9fa7;
+    }
+  }
+}
+
+.rights{
+  display: flex;
+  align-items: flex-end;
+}

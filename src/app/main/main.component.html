@@ -1,3 +1,16 @@
 <main>
   <app-owl-carousel></app-owl-carousel>
+  <div class="details">
+    <div class="container flex-wrap">
+      <div class="item" *ngFor="let item of viewImg">
+        <a routerLink=""
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact: true}"
+           [style.background-image]="'url(' + item.url+')'"
+           >
+        </a>
+        <p class="title">hashhash</p>
+      </div>
+    </div>
+  </div>
 </main>

@@ -1,3 +1,43 @@
-app-main{
+app-main {
   flex: 1;
+}
+
+.details {
+  padding: 50px 0;
+
+  .item {
+    flex-basis: calc(100% / 3);
+    padding: 10px 0;
+    position: relative;
+
+    a {
+      width: 350px;
+      height: 150px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 10%;
+      margin: 0 auto;
+      opacity: .7;
+      transition: .5s;
+    }
+    
+    .title {
+      position: absolute;
+      opacity: 0;
+      color: #c7c7cc;
+      top: -100%;
+      transition: .5s;
+    }
+
+    &:hover {
+      a {
+        opacity: 1;
+      }
+      .title {
+        opacity: 1;
+        top: 50%;
+      }
+    }
+  }
 }
