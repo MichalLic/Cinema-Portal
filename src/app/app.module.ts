@@ -10,6 +10,9 @@ import { MainComponent } from './main/main.component';
 import {CinemaService} from './cinema.service';
 import {RouterModule, Routes} from '@angular/router';
 import { NewsComponent } from './news/news.component';
+import {OwlModule} from 'ng2-owl-carousel';
+import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
+import { FooterComponent } from './footer/footer.component';
 
 export  const routes: Routes = [
   {path: '', component: MainComponent, pathMatch: 'full'},
@@ -22,13 +25,16 @@ export  const routes: Routes = [
     HeaderComponent,
     NavComponent,
     MainComponent,
-    NewsComponent
+    NewsComponent,
+    OwlCarouselComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    OwlModule
   ],
   providers: [CinemaService],
   bootstrap: [AppComponent]
