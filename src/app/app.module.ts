@@ -16,6 +16,10 @@ import { FooterComponent } from './footer/footer.component';
 
 export  const routes: Routes = [
   {path: '', component: MainComponent, pathMatch: 'full'},
+  {path: 'detail', children: [
+    {path: '', component: NewsComponent},
+    {path: ':id', component: NewsComponent}
+  ]},
   {path: 'news', component: NewsComponent, pathMatch: 'full'}
 ];
 

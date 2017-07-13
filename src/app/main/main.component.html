@@ -3,13 +3,13 @@
   <div class="details">
     <div class="container flex-wrap">
       <div class="item" *ngFor="let item of viewImg">
-        <a routerLink=""
+        <a routerLink="detail"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"
            [style.background-image]="'url(' + item.url+')'"
            >
         </a>
-        <p class="title">hashhash</p>
+        <p class="title">{{item.title}}</p>
       </div>
     </div>
   </div>
