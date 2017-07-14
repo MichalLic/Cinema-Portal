@@ -3,11 +3,11 @@
   <div class="details">
     <div class="container flex-wrap">
       <div class="item" *ngFor="let item of viewImg">
-        <a routerLink="detail"
+        <a [routerLink]="'detail/' + item.title+ ''"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"
            [style.background-image]="'url(' + item.url+')'"
-           >
+        >
         </a>
         <p class="title">{{item.title}}</p>
       </div>

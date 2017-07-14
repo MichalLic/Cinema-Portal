@@ -4,10 +4,11 @@ app-main {
 
 .details {
   padding: 50px 0;
-  background-image: url("../../assets/images/cinema-background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 20%;
+  background-color: #daf9f1;
+  //background-image: url("../../assets/images/cinema-background.jpg");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  //background-position: 50% 20%;
 
   .item {
     flex-basis: calc(100% / 3);
@@ -28,6 +29,7 @@ app-main {
 
     .title {
       position: absolute;
+      pointer-events: none;
       opacity: 0;
       left: 0;
       text-align: center;
@@ -38,6 +40,8 @@ app-main {
       font-size: 18px;
       font-weight: bold;
       background: rgba(0,0,0,0.6);
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
     &:hover {

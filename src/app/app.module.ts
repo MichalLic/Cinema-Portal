@@ -13,12 +13,13 @@ import { NewsComponent } from './news/news.component';
 import {OwlModule} from 'ng2-owl-carousel';
 import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 import { FooterComponent } from './footer/footer.component';
+import { ViewDetailComponent } from './view-detail/view-detail.component';
 
 export  const routes: Routes = [
   {path: '', component: MainComponent, pathMatch: 'full'},
   {path: 'detail', children: [
     {path: '', component: NewsComponent},
-    {path: ':id', component: NewsComponent}
+    {path: ':name', component: ViewDetailComponent}
   ]},
   {path: 'news', component: NewsComponent, pathMatch: 'full'}
 ];
@@ -31,7 +32,8 @@ export  const routes: Routes = [
     MainComponent,
     NewsComponent,
     OwlCarouselComponent,
-    FooterComponent
+    FooterComponent,
+    ViewDetailComponent
   ],
   imports: [
     BrowserModule,
