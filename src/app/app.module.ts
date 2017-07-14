@@ -15,6 +15,7 @@ import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { ViewDetailComponent } from './view-detail/view-detail.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { CinemasComponent } from './cinemas/cinemas.component';
 
 export  const routes: Routes = [
   {path: '', component: MainComponent, pathMatch: 'full'},
@@ -23,7 +24,8 @@ export  const routes: Routes = [
     {path: ':name', component: ViewDetailComponent}
   ]},
   {path: 'news', component: NewsComponent, pathMatch: 'full'},
-  {path: 'reservation', component: ReservationComponent, pathMatch: 'full'}
+  {path: 'reservation', component: ReservationComponent, pathMatch: 'full'},
+  {path: 'cinemas', component: CinemasComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -36,7 +38,8 @@ export  const routes: Routes = [
     OwlCarouselComponent,
     FooterComponent,
     ViewDetailComponent,
-    ReservationComponent
+    ReservationComponent,
+    CinemasComponent
   ],
   imports: [
     BrowserModule,
