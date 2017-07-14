@@ -1,3 +1,12 @@
-<p>
-  cinemas works!
-</p>
+<div class="cinemas-section">
+  <div class="container">
+      <div>
+        <h2>Our Cinemas</h2>
+        <ul class="cinemas-list">
+          <li *ngFor="let cinema of cinemas">
+            <a [href]="cinema.url">{{cinema.name}}</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>

@@ -58,4 +58,19 @@ export class CinemaService {
       }
     ];
   }
+
+  getCinemas() {
+    return [
+      {name: 'Cineworld', url: 'https://en.wikipedia.org/wiki/Cineworld'},
+      {name: 'Curzon Cinemas', url: 'https://en.wikipedia.org/wiki/Curzon_Cinemas'},
+      {name: 'Curzon Home Cinema', url: 'https://en.wikipedia.org/wiki/Curzon_Home_Cinema'},
+      {name: 'Vue Cinemas', url: 'https://en.wikipedia.org/wiki/Vue_Cinemas'},
+      {name: 'Showcase Cinemas', url: 'https://en.wikipedia.org/wiki/Showcase_Cinemas'},
+      {name: 'Reel Cinemas, UK', url: 'https://en.wikipedia.org/wiki/Reel_Cinemas,_UK'},
+      {name: 'The Light Cinemas', url: 'https://en.wikipedia.org/wiki/The_Light_Cinemas'},
+      {name: 'Everyman Cinemas', url: 'https://en.wikipedia.org/wiki/Everyman_Cinemas'},
+      {name: 'Cineworld', url: 'https://en.wikipedia.org/wiki/Cineworld'},
+      {name: 'Merlin Cinemas', url: 'https://en.wikipedia.org/wiki/Merlin_Cinemas'},
+    ];
+  }
 }
