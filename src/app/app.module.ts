@@ -14,6 +14,7 @@ import {OwlModule} from 'ng2-owl-carousel';
 import { OwlCarouselComponent } from './owl-carousel/owl-carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { ViewDetailComponent } from './view-detail/view-detail.component';
+import { ReservationComponent } from './reservation/reservation.component';
 
 export  const routes: Routes = [
   {path: '', component: MainComponent, pathMatch: 'full'},
@@ -21,7 +22,8 @@ export  const routes: Routes = [
     {path: '', component: NewsComponent},
     {path: ':name', component: ViewDetailComponent}
   ]},
-  {path: 'news', component: NewsComponent, pathMatch: 'full'}
+  {path: 'news', component: NewsComponent, pathMatch: 'full'},
+  {path: 'reservation', component: ReservationComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ export  const routes: Routes = [
     NewsComponent,
     OwlCarouselComponent,
     FooterComponent,
-    ViewDetailComponent
+    ViewDetailComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,

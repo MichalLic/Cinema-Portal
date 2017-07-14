@@ -7,6 +7,11 @@
       <p>Title: {{view.title}}</p>
       <p>Author: {{view.director}}</p>
       <p>Premiere: {{view.premiere | date: 'yMMMMd'}}</p>
+      <a class="btn-primary"
+         role="button"
+         (click)="reservation()">
+        Reserve!
+      </a>
     </div>
   </div>
 </div>

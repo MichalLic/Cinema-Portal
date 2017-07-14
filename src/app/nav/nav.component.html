@@ -1,12 +1,10 @@
 <nav>
   <div class="container">
     <ul class="menu-list">
-      <li><a routerLink="news"
+      <li *ngFor="let nav of navs "><a [routerLink]="nav.id"
              routerLinkActive="active"
-             [routerLinkActiveOptions]="{exact: true}">
-        News</a></li>
-      <li><a href="">Ours cinema</a></li>
-      <li><a href="">Reservation</a></li>
+             [routerLinkActiveOptions]="{exact: nav.exact}">
+        {{nav.name}}</a></li>
     </ul>
   </div>
 </nav>

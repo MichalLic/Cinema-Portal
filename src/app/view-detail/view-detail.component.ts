@@ -1,17 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {CinemaService} from '../cinema.service';
 
 @Component({
   selector: 'app-view-detail',
   templateUrl: './view-detail.component.html',
-  styleUrls: ['./view-detail.component.scss']
+  styleUrls: ['./view-detail.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ViewDetailComponent implements OnInit {
-view;
+  view;
+
   constructor(private route: ActivatedRoute,
-              private cinemaService: CinemaService) {
+              private cinemaService: CinemaService,
+              private  router: Router) {
   }
 
   ngOnInit() {
@@ -30,5 +33,9 @@ view;
         }
       });
   };
+
+  reservation() {
+    this.router.navigate(['reservation']);
+  }
 
 }
