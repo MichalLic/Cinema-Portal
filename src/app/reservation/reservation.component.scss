@@ -1,15 +1,79 @@
-app-reservation{
+app-reservation {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-select,
-input{
-  padding: 4px;
-  border: 1px solid #40e0b5;
-  border-radius: 3px;
+.reservation-section {
+  width: 100%;
 
-  &:focus{
-    outline: none;
-    border-color: #168a6b;
+  .flex-container {
+    display: flex;
+    justify-content: space-around;
   }
+}
+
+.date-view,
+.select-view {
+  max-width: 75%;
+  text-align: end;
+  padding: 10px 0;
+}
+
+.seats-block {
+  flex: 2;
+  .select-seat {
+    display: flex;
+    flex-direction: column;
+
+    .seats-row {
+      display: flex;
+    }
+  }
+}
+
+.detail-block {
+  flex: 1;
+
+  select,
+  input {
+    padding: 4px;
+    border: 1px solid #40e0b5;
+    border-radius: 3px;
+    min-width: 200px;
+
+    &:focus {
+      outline: none;
+      border-color: #168a6b;
+    }
+  }
+}
+
+button {
+  background-color: #40e0b5;
+  border: 1px solid #168a6b;
+  padding: 5px;
+  margin: 3px;
+  flex: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  position: relative;
+  font-size: 10px;
+
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    background-color: #168a6b;
+  }
+}
+
+p.p-row {
+  flex: 2;
+  text-align: center;
+}
+
+.reserved{
+  background-color: #168a6b;
 }

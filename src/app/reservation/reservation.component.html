@@ -1,5 +1,5 @@
 <div class="reservation-section">
-  <div class="container">
+  <div class="container flex-container">
     <div class="detail-block">
       <div class="select-view">
         <label for="selectedFilm">
@@ -15,9 +15,25 @@
         <label for="dateFilm">Choose date</label>
         <input type="date" id="dateFilm" [(ngModel)]="dateFilm">
       </div>
-    </div>
+      <div>
 
+      </div>
+    </div>
+    <div class="seats-block">
+      <div class="select-seat">
+        <div class="seats-row" *ngFor="let row of seatRows">
+          <p class="p-row">{{row}}</p>
+          <button #seat (click)="seat.classList.contains('reserved') ? reservedSeat($event) : unreservedSeat($event)"
+                  *ngFor="let i of seatSeries">
+            {{i}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="reservation-details">
+      <p>Film: {{selectedFilm}}</p>
+      <p>Date: {{dateFilm}}</p>
+      <p>Tickets: {{seatCounter}}</p>
+    </div>
   </div>
 </div>
-{{selectedView}}
-{{dateView}}
