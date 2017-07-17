@@ -7,7 +7,7 @@ export class CinemaService {
   }
 
 
-  getViewDetails() {
+  getFilmDetails() {
     return [
       {
         title: 'Security',

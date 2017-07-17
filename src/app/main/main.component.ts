@@ -8,11 +8,11 @@ import {CinemaService} from '../cinema.service';
   encapsulation: ViewEncapsulation.None
 })
 export class MainComponent implements OnInit {
-  views;
+  films;
   constructor(private CinemaService: CinemaService) {
   }
 
   ngOnInit() {
-    this.views = this.CinemaService.getViewDetails();
+    this.films = this.CinemaService.getFilmDetails();
   }
 }

@@ -10,7 +10,7 @@ import {CinemaService} from '../cinema.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ViewDetailComponent implements OnInit {
-  view;
+  film;
 
   constructor(private route: ActivatedRoute,
               private cinemaService: CinemaService,
@@ -25,11 +25,11 @@ export class ViewDetailComponent implements OnInit {
   }
 
   getDetail(params) {
-    this.cinemaService.getViewDetails()
+    this.cinemaService.getFilmDetails()
       .map((detail) => {
         if (params.name === detail.title) {
           console.log(detail);
-          this.view = detail;
+          this.film = detail;
         }
       });
   };

@@ -1,12 +1,12 @@
 <div class="detail-section">
   <div class="container flex-space-around">
     <div class="img-block">
-      <img [src]="view.url" alt="">
+      <img [src]="film.url" alt="">
     </div>
     <div class="view-detail">
-      <p>Title: {{view.title}}</p>
-      <p>Author: {{view.director}}</p>
-      <p>Premiere: {{view.premiere | date: 'yMMMMd'}}</p>
+      <p>Title: {{film.title}}</p>
+      <p>Author: {{film.director}}</p>
+      <p>Premiere: {{film.premiere | date: 'yMMMMd'}}</p>
       <a class="btn-primary"
          role="button"
          (click)="reservation()">

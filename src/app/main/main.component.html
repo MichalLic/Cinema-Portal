@@ -2,7 +2,7 @@
   <app-owl-carousel></app-owl-carousel>
   <div class="details">
     <div class="container flex-wrap">
-      <div class="item" *ngFor="let item of views">
+      <div class="item" *ngFor="let item of films">
         <a [routerLink]="'detail/' + item.title+ ''"
            routerLinkActive="active"
            [routerLinkActiveOptions]="{exact: true}"

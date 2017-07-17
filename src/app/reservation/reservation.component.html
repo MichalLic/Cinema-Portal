@@ -1,3 +1,23 @@
-<p>
-  reservation works!
-</p>
+<div class="reservation-section">
+  <div class="container">
+    <div class="detail-block">
+      <div class="select-view">
+        <label for="selectedFilm">
+          Select Your film
+        </label>
+        <select id="selectedFilm" [(ngModel)]="selectedFilm">
+          <option *ngFor="let film of films" [ngValue]="film.title">
+            {{film.title}}
+          </option>
+          select</select>
+      </div>
+      <div class="date-view">
+        <label for="dateFilm">Choose date</label>
+        <input type="date" id="dateFilm" [(ngModel)]="dateFilm">
+      </div>
+    </div>
+
+  </div>
+</div>
+{{selectedView}}
+{{dateView}}
