@@ -11,14 +11,19 @@ app-reservation {
   .flex-container {
     display: flex;
     justify-content: space-around;
+    z-index: 1;
   }
 }
 
-.date-view,
-.select-view {
-  max-width: 75%;
-  text-align: end;
+.date-film,
+.select-film {
   padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+
+  label {
+    padding-right: 10px;
+  }
 }
 
 .seats-block {
@@ -74,6 +79,19 @@ p.p-row {
   text-align: center;
 }
 
-.reserved{
+.reserved {
   background-color: #168a6b;
+}
+
+button.btn-reserved {
+  padding: 10px 15px;
+  display: block;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+.reservation-details{
+  p {
+    font-weight: 600;
+  }
 }

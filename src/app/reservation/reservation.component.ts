@@ -14,6 +14,9 @@ export class ReservationComponent implements OnInit {
   seatSeries = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   seatRows = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
   seatCounter = 0;
+  currentTime = new Date();
+  isReserved = false;
+  filmPrice = 7;
 
   constructor(private cinemaService: CinemaService) {
   }
@@ -30,6 +33,10 @@ export class ReservationComponent implements OnInit {
   unreservedSeat(seat) {
     seat.target.classList.add('reserved');
     this.seatCounter++;
+  }
+
+  checkFilmReservation() {
+    this.isReserved = true;
   }
 
 }

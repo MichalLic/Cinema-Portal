@@ -1,7 +1,7 @@
-<div class="reservation-section">
+<div class="reservation-section" [ngClass]="{'cinema-background': isReserved}">
   <div class="container flex-container">
-    <div class="detail-block">
-      <div class="select-view">
+    <div class="detail-block" *ngIf="!isReserved">
+      <div class="select-film">
         <label for="selectedFilm">
           Select Your film
         </label>
@@ -11,29 +11,41 @@
           </option>
           select</select>
       </div>
-      <div class="date-view">
+      <div class="date-film">
         <label for="dateFilm">Choose date</label>
         <input type="date" id="dateFilm" [(ngModel)]="dateFilm">
       </div>
-      <div>
+      <div *ngIf="seatCounter > 0">
+        <p>Ticket: {{seatCounter}}</p>
+        <p>Price: {{seatCounter * filmPrice | currency: 'USD':true:'1.2-2'}}</p>
+      </div>
 
+      <div *ngIf="seatCounter > 0 && dateFilm && selectedFilm">
+        <button (click)="checkFilmReservation()"
+                [disabled]="[currentTime | date: 'yyyy-MM-dd'] > [dateFilm | date: 'yyyy-MM-dd']" class="btn-reserved">
+          Reserve!
+        </button>
+        <span [ngStyle]="{'color': 'red', 'text-align': 'center', 'display': 'block'}"
+              *ngIf="[currentTime | date: 'yyyy-MM-dd'] > [dateFilm | date: 'yyyy-MM-dd'] && dateFilm">Check correctly film day!</span>
       </div>
     </div>
-    <div class="seats-block">
+    <div class="seats-block" *ngIf="!isReserved">
       <div class="select-seat">
         <div class="seats-row" *ngFor="let row of seatRows">
           <p class="p-row">{{row}}</p>
           <button #seat (click)="seat.classList.contains('reserved') ? reservedSeat($event) : unreservedSeat($event)"
-                  *ngFor="let i of seatSeries">
+                  *ngFor="let i of seatSeries"
+                  [disabled]="!selectedFilm && !dateFilm">
             {{i}}
           </button>
         </div>
       </div>
     </div>
-    <div class="reservation-details">
+    <div class="reservation-details" *ngIf="isReserved">
       <p>Film: {{selectedFilm}}</p>
       <p>Date: {{dateFilm}}</p>
       <p>Tickets: {{seatCounter}}</p>
+      <p>Price: {{seatCounter * filmPrice | currency: 'USD':true:'1.2-2'}}</p>
     </div>
   </div>
 </div>
