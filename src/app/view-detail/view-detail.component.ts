@@ -35,6 +35,7 @@ export class ViewDetailComponent implements OnInit {
   };
 
   reservation() {
+    sessionStorage.setItem('filmTitle', JSON.stringify({title: this.film.title}));
     this.router.navigate(['reservation']);
   }
 

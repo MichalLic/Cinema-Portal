@@ -9,7 +9,6 @@ import {CinemaService} from '../cinema.service';
 })
 export class ReservationComponent implements OnInit {
   films;
-  selectedFilm;
   dateFilm;
   seatSeries = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   seatRows = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
@@ -17,12 +16,14 @@ export class ReservationComponent implements OnInit {
   currentTime = new Date();
   isReserved = false;
   filmPrice = 7;
+  filmTitle;
 
   constructor(private cinemaService: CinemaService) {
   }
 
   ngOnInit() {
     this.films = this.cinemaService.getFilmDetails();
+    this.isSessionStorageFilmTitle();
   }
 
   reservedSeat(seat) {
@@ -37,6 +38,13 @@ export class ReservationComponent implements OnInit {
 
   checkFilmReservation() {
     this.isReserved = true;
+    this.filmTitle = sessionStorage.removeItem('filmTitle');
+  }
+
+  isSessionStorageFilmTitle() {
+    if (JSON.parse(sessionStorage.getItem('filmTitle'))) {
+      this.filmTitle = JSON.parse(sessionStorage.getItem('filmTitle')).title;
+    }
   }
 
 }

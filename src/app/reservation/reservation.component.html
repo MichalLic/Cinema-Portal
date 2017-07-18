@@ -2,15 +2,15 @@
   <div class="container flex-container">
     <div class="detail-block" *ngIf="!isReserved">
       <div class="select-film">
-        <label for="selectedFilm">
-          Select Your film
-        </label>
-        <select id="selectedFilm" [(ngModel)]="selectedFilm">
-          <option *ngFor="let film of films" [ngValue]="film.title">
-            {{film.title}}
-          </option>
-          select</select>
-      </div>
+      <label for="selectedFilm">
+        Select Your film
+      </label>
+      <select id="selectedFilm" [(ngModel)]="filmTitle">
+        <option *ngFor="let film of films">
+          {{film.title}}
+        </option>
+      </select>
+    </div>
       <div class="date-film">
         <label for="dateFilm">Choose date</label>
         <input type="date" id="dateFilm" [(ngModel)]="dateFilm">
@@ -20,7 +20,7 @@
         <p>Price: {{seatCounter * filmPrice | currency: 'USD':true:'1.2-2'}}</p>
       </div>
 
-      <div *ngIf="seatCounter > 0 && dateFilm && selectedFilm">
+      <div *ngIf="seatCounter > 0 && dateFilm && filmTitle">
         <button (click)="checkFilmReservation()"
                 [disabled]="[currentTime | date: 'yyyy-MM-dd'] > [dateFilm | date: 'yyyy-MM-dd']" class="btn-reserved">
           Reserve!
@@ -35,14 +35,14 @@
           <p class="p-row">{{row}}</p>
           <button #seat (click)="seat.classList.contains('reserved') ? reservedSeat($event) : unreservedSeat($event)"
                   *ngFor="let i of seatSeries"
-                  [disabled]="!selectedFilm && !dateFilm">
+                  [disabled]="!filmTitle && !dateFilm">
             {{i}}
           </button>
         </div>
       </div>
     </div>
     <div class="reservation-details" *ngIf="isReserved">
-      <p>Film: {{selectedFilm}}</p>
+      <p>Film: {{filmTitle}}</p>
       <p>Date: {{dateFilm}}</p>
       <p>Tickets: {{seatCounter}}</p>
       <p>Price: {{seatCounter * filmPrice | currency: 'USD':true:'1.2-2'}}</p>
