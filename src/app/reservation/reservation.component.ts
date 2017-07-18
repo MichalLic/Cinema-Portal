@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, Renderer, ViewChild, ViewEncapsulation} from '@angular/core';
 import {CinemaService} from '../cinema.service';
 
 @Component({
@@ -7,7 +7,8 @@ import {CinemaService} from '../cinema.service';
   styleUrls: ['./reservation.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ReservationComponent implements OnInit {
+
+export class ReservationComponent implements OnInit, AfterViewInit {
   films;
   dateFilm;
   seatSeries = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
@@ -17,6 +18,10 @@ export class ReservationComponent implements OnInit {
   isReserved = false;
   filmPrice = 7;
   filmTitle;
+  seatsArray = [];
+  disabledSeats;
+
+  @ViewChild('seat') seat: ElementRef;
 
   constructor(private cinemaService: CinemaService) {
   }
@@ -26,14 +31,33 @@ export class ReservationComponent implements OnInit {
     this.isSessionStorageFilmTitle();
   }
 
+  ngAfterViewInit() {
+      if (JSON.parse(localStorage.getItem('seats'))) {
+        this.disabledSeats = JSON.parse(localStorage.getItem('seats'))
+          .map(item => {
+            document.getElementById(item).classList.add('reserved', 'disabled');
+          });
+      }
+  }
+
   reservedSeat(seat) {
     seat.target.classList.remove('reserved');
     this.seatCounter--;
   }
 
-  unreservedSeat(seat) {
-    seat.target.classList.add('reserved');
+  unreservedSeat(event, seat) {
+    event.target.classList.add('reserved');
     this.seatCounter++;
+    console.log(seat.id);
+    if (localStorage.getItem('seats') === null) {
+      this.seatsArray = [];
+      this.seatsArray.push(seat.id);
+      localStorage.setItem('seats', JSON.stringify(this.seatsArray));
+    } else {
+      this.seatsArray = JSON.parse(localStorage.getItem('seats'));
+      this.seatsArray.push(seat.id);
+      localStorage.setItem('seats', JSON.stringify(this.seatsArray));
+    }
   }
 
   checkFilmReservation() {
@@ -46,5 +70,4 @@ export class ReservationComponent implements OnInit {
       this.filmTitle = JSON.parse(sessionStorage.getItem('filmTitle')).title;
     }
   }
-
 }

@@ -33,7 +33,7 @@
       <div class="select-seat">
         <div class="seats-row" *ngFor="let row of seatRows">
           <p class="p-row">{{row}}</p>
-          <button #seat (click)="seat.classList.contains('reserved') ? reservedSeat($event) : unreservedSeat($event)"
+          <button #seat id="{{row}}{{i}}" (click)="seat.classList.contains('reserved') ? reservedSeat($event) : unreservedSeat($event, seat)"
                   *ngFor="let i of seatSeries"
                   [disabled]="!filmTitle && !dateFilm">
             {{i}}

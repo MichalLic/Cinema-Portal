@@ -12,7 +12,6 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
   navs = [
-    {name: 'News', id: 'news', exact: true},
     {name: 'Ours cinemas', id: 'cinemas', exact: true},
     {name: 'Reservation', id: 'reservation', exact: true}
   ];

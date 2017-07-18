@@ -83,6 +83,11 @@ p.p-row {
   background-color: #168a6b;
 }
 
+.disabled{
+  pointer-events: none;
+  cursor: none;
+}
+
 button.btn-reserved {
   padding: 10px 15px;
   display: block;
