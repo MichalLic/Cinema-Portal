@@ -8,10 +8,14 @@ app-reservation {
 .reservation-section {
   width: 100%;
 
-  .flex-container {
+  .reservation-container {
     display: flex;
     justify-content: space-around;
     z-index: 1;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
   }
 }
 
@@ -55,6 +59,10 @@ app-reservation {
   }
 }
 
+.summary-reservation {
+  text-align: end;
+}
+
 button {
   background-color: #40e0b5;
   border: 1px solid #168a6b;
@@ -72,18 +80,30 @@ button {
   &:hover {
     background-color: #168a6b;
   }
+
+  @media (max-width: 767px) {
+    flex-basis: calc((100% - 23px) / 17);
+    padding: 2px;
+    margin: 2px;
+    font-size: 7px;
+  }
 }
 
 p.p-row {
   flex: 2;
   text-align: center;
+
+  @media (max-width: 767px) {
+    flex-basis: 23px;
+    font-size: 10px;
+  }
 }
 
 .reserved {
   background-color: #168a6b;
 }
 
-.disabled{
+.disabled {
   pointer-events: none;
   cursor: none;
 }
@@ -91,11 +111,11 @@ p.p-row {
 button.btn-reserved {
   padding: 10px 15px;
   display: block;
-  margin: 0 auto;
+  margin: 25px auto;
   font-size: 15px;
 }
 
-.reservation-details{
+.reservation-details {
   p {
     font-weight: 600;
   }

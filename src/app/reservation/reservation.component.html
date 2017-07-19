@@ -1,5 +1,5 @@
 <div class="reservation-section" [ngClass]="{'cinema-background': isReserved}">
-  <div class="container flex-container">
+  <div class="container reservation-container">
     <div class="detail-block" *ngIf="!isReserved">
       <div class="select-film">
       <label for="selectedFilm">
@@ -15,7 +15,7 @@
         <label for="dateFilm">Choose date</label>
         <input type="date" id="dateFilm" [(ngModel)]="dateFilm">
       </div>
-      <div *ngIf="seatCounter > 0">
+      <div class="summary-reservation" *ngIf="seatCounter > 0">
         <p>Ticket: {{seatCounter}}</p>
         <p>Price: {{seatCounter * filmPrice | currency: 'USD':true:'1.2-2'}}</p>
       </div>

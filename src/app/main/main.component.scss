@@ -5,10 +5,14 @@ app-main {
 .details {
   padding: 50px 0;
   background-color: #daf9f1;
-  //background-image: url("../../assets/images/cinema-background.jpg");
-  //background-repeat: no-repeat;
-  //background-size: cover;
-  //background-position: 50% 20%;
+
+  > div {
+    .item {
+      @media (max-width: 767px) {
+        flex-basis: 100%;
+      }
+    }
+  }
 
   .item {
     flex-basis: calc(100% / 3);
