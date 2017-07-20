@@ -1,4 +1,7 @@
-import {AfterViewInit, Component, ElementRef, OnInit, Renderer, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, OnChanges, OnInit, Renderer, ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {CinemaService} from '../cinema.service';
 
 @Component({
@@ -19,8 +22,8 @@ export class ReservationComponent implements OnInit, AfterViewInit {
   filmPrice = 7;
   filmTitle;
   seatsArray = [];
-  disabledSeats;
-
+  removeLocalStorageItem;
+  seatIndex;
   @ViewChild('seat') seat: ElementRef;
 
   constructor(private cinemaService: CinemaService) {
@@ -32,17 +35,19 @@ export class ReservationComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-      if (JSON.parse(localStorage.getItem('seats'))) {
-        this.disabledSeats = JSON.parse(localStorage.getItem('seats'))
-          .map(item => {
-            document.getElementById(item).classList.add('reserved', 'disabled');
-          });
-      }
+    if (JSON.parse(localStorage.getItem('seats'))) {
+      JSON.parse(localStorage.getItem('seats'))
+        .map(item => document.getElementById(item).classList.add('reserved', 'disabled'));
+    }
   }
 
   reservedSeat(seat) {
     seat.target.classList.remove('reserved');
     this.seatCounter--;
+    const removeLocalStorageItem = JSON.parse(localStorage.getItem('seats'))
+      .filter(item => item !== seat.target.id ? true : '');
+    localStorage.setItem('seats', JSON.stringify(removeLocalStorageItem));
+    console.log(removeLocalStorageItem);
   }
 
   unreservedSeat(event, seat) {
@@ -61,6 +66,7 @@ export class ReservationComponent implements OnInit, AfterViewInit {
   }
 
   checkFilmReservation() {
+    console.log(this.seat);
     this.isReserved = true;
     this.filmTitle = sessionStorage.removeItem('filmTitle');
   }
