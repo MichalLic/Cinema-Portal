@@ -1,11 +1,14 @@
 import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class CinemaService {
 
+  mySubject = new Subject<void>();
+  aaa;
+
   constructor() {
   }
-
 
   getFilmDetails() {
     return [
